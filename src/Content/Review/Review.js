@@ -1,18 +1,13 @@
 import React, { Component } from "react";
 import ReviewCard from "./ReviewCard";
+import Reviews from "./ReviewData.json";
 
 export default class Review extends Component {
     constructor() {
         super();
 
         this.state = {
-            reviews: [ 
-                {
-                    Name: 'Jon Doe',
-                    Rating: 5,
-                    Response: 'It was the worst thing in my life! Ready to kms'
-                }
-            ]
+            reviews: [...Reviews]
         }
     }
 
@@ -20,7 +15,7 @@ export default class Review extends Component {
         return (
             <div className="content">
                 { this.state.reviews.map((item, index) => {
-                    return (<ReviewCard Key={index} {...item} />);
+                    return (<ReviewCard key={index} {...item} />);
                 }) }
             </div>
         )
